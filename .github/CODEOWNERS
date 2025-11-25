@@ -1,0 +1,7 @@
+* @NicoVermaeck
+
+packages/* @NicoVermaeck
+apps/* @NicoVermaeck
+docs/* @kitrojs-core
+.github/* @kitrojs-core
+
