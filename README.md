@@ -4,83 +4,83 @@
 [![Status: Dev Edition v0.1.1](https://img.shields.io/badge/Status-Dev%20Edition%20v0.1.1-brightgreen.svg)]()
 [![Made by Nico Vermaeck](https://img.shields.io/badge/Made%20by-Nico%20Vermaeck-blueviolet.svg)]()
 
-KitroJS is een modern, TypeScript-first web framework gebouwd op:
+KitroJS is a modern, TypeScript-first web framework built on:
 
-- **React** voor UI
-- **File-based routing** voor pages & API
-- **Block-based UI** voor herbruikbare componenten
-- **Hono** voor superlichte HTTP/API handling
+- **React** for UI
+- **File-based routing** for pages & API
+- **Block-based UI** for reusable components
+- **Hono** for super-lightweight HTTP/API handling
 
-Deze repository bevat de **KitroJS Dev Edition v0.1.1** – een lichte, developer-focussed setup zonder CMS of admin-panel. Perfect om:
+This repository contains **KitroJS Dev Edition v0.1.1** – a lightweight, developer-focused setup without CMS or admin panel. Perfect for:
 
-- snel een prototype te bouwen  
-- de core van KitroJS te leren kennen  
-- eigen sites/apps bovenop de runtime te bouwen  
+- quickly building prototypes  
+- learning the core of KitroJS  
+- building your own sites/apps on top of the runtime  
 
 ---
 
 ## ✨ Features
 
 - 🔁 **File-based routing**  
-  Iedere file in `src/pages` wordt automatisch een route.
+  Every file in `src/pages` automatically becomes a route.
 
 - 🧱 **Block-based UI**  
-  Blocks zijn gewoon React components – geen speciale magie, gewoon TypeScript + props.
+  Blocks are just React components – no special magic, just TypeScript + props.
 
 - ⚡ **API routes out-of-the-box**  
-  Files in `src/pages/api` worden Hono-powered API endpoints.
+  Files in `src/pages/api` become Hono-powered API endpoints.
 
 - 🧠 **TypeScript-first**  
-  Volledige type support, duidelijke interfaces en sterke DX.
+  Full type support, clear interfaces and strong DX.
 
-- 🚀 **Snelle setup**  
-  Unzip → `pnpm install` → `pnpm run dev:devdemo` → je bent bezig.
+- 🚀 **Quick setup**  
+  Unzip → `pnpm install` → `pnpm run dev:devdemo` → you're ready to go.
 
-- 🧩 **Geen vendor lock-in**  
-  Alles is gewoon React + TS + Hono. Je kunt eenvoudig integreren in bestaande stacks.
+- 🧩 **No vendor lock-in**  
+  Everything is just React + TS + Hono. You can easily integrate into existing stacks.
 
 ---
 
-## 📦 Inhoud van deze Dev Edition
+## 📦 Contents of this Dev Edition
 
-Deze Dev Edition bevat:
+This Dev Edition contains:
 
 - `packages/kitro-runtime` – HTTP server + runtime
 - `packages/kitro-router` – file-based routing
-- `packages/kitro-blocks` – basis blocks + helpers
-- `apps/kitro-dev-demo` – voorbeeldapp met pages, blocks en API routes
-- OSS-bestanden: `LICENSE`, `NOTICE`, `AUTHORS`, `CONTRIBUTING.md`, `SECURITY.md`, `COPYRIGHT.txt`
+- `packages/kitro-blocks` – base blocks + helpers
+- `apps/kitro-dev-demo` – example app with pages, blocks and API routes
+- OSS files: `LICENSE`, `NOTICE`, `AUTHORS`, `CONTRIBUTING.md`, `SECURITY.md`, `COPYRIGHT.txt`
 
-**Let op:**  
-Deze edition bevat **geen** CMS, admin of Studio. Dit is bewust, zodat developers de core zo simpel mogelijk kunnen gebruiken.
+**Note:**  
+This edition contains **no** CMS, admin or Studio. This is intentional, so developers can use the core as simply as possible.
 
 ---
 
-## ✅ Systeemvereisten
+## ✅ System Requirements
 
 - Node.js **18+**
-- pnpm **8+** of **10+**  
-- Git (optioneel, voor version control)
+- pnpm **8+** or **10+**  
+- Git (optional, for version control)
 
 ---
 
-## 🚀 Snel starten
+## 🚀 Quick Start
 
 ```bash
-# 1. Dependencies installeren
+# 1. Install dependencies
 pnpm install
 
-# 2. Development server starten
+# 2. Start development server
 pnpm run dev:devdemo
 ```
 
-Standaard draait de dev-server op http://localhost:3000 (check de console-output om dit te bevestigen).
+By default, the dev server runs on http://localhost:3000 (check the console output to confirm).
 
 ---
 
-## 🧬 Projectstructuur
+## 🧬 Project Structure
 
-Een minimale setup ziet er zo uit:
+A minimal setup looks like this:
 
 ```
 apps/
@@ -105,19 +105,19 @@ COPYRIGHT.txt
 README.md
 ```
 
-**Belangrijkste mappen:**
+**Key directories:**
 
-- `apps/kitro-dev-demo/src/pages` → alle UI pages (React components)
+- `apps/kitro-dev-demo/src/pages` → all UI pages (React components)
 - `apps/kitro-dev-demo/src/pages/api` → API routes (Hono handlers)
-- `packages/kitro-blocks` → gedeelde blocks (Heading, Text, Card, enz.)
+- `packages/kitro-blocks` → shared blocks (Heading, Text, Card, etc.)
 
 ---
 
 ## 📄 Pages & Routing
 
-Elke file in `src/pages` wordt automatisch een route.
+Every file in `src/pages` automatically becomes a route.
 
-**Voorbeeld: `src/pages/about.tsx`:**
+**Example: `src/pages/about.tsx`:**
 
 ```tsx
 import React from "react";
@@ -134,20 +134,20 @@ export default function AboutPage() {
 
 **Route:** `/about`
 
-**Regels:**
+**Rules:**
 - `index.tsx` → `/`
 - `docs.tsx` → `/docs`
 - `contact.tsx` → `/contact`
 
-Geen extra config nodig.
+No extra config needed.
 
 ---
 
 ## 🧱 Blocks
 
-Blocks zijn herbruikbare React components met duidelijke TypeScript props.
+Blocks are reusable React components with clear TypeScript props.
 
-**Voorbeeld: een eenvoudige CustomBlock:**
+**Example: a simple CustomBlock:**
 
 ```tsx
 // packages/kitro-blocks/src/CustomBlock.tsx
@@ -174,7 +174,7 @@ export function CustomBlock({ title, description }: CustomBlockProps) {
 export * from "./CustomBlock";
 ```
 
-**Gebruik in een page:**
+**Use in a page:**
 
 ```tsx
 import React from "react";
@@ -195,11 +195,11 @@ export default function HomePage() {
 
 ---
 
-## 🌐 API routes met Hono
+## 🌐 API routes with Hono
 
-Alle files in `src/pages/api` worden API endpoints.
+All files in `src/pages/api` become API endpoints.
 
-**Voorbeeld: `src/pages/api/hello.ts`:**
+**Example: `src/pages/api/hello.ts`:**
 
 ```ts
 import type { Context } from "hono";
@@ -214,32 +214,32 @@ export default async function handler(c: Context) {
 - `/api/hello` → `{"message": "Hello, Developer!"}`
 - `/api/hello?name=Nico` → `{"message": "Hello, Nico!"}`
 
-**Nieuwe API route maken?**
+**Want to create a new API route?**
 
-Maak simpelweg een nieuw bestand, bijvoorbeeld:
+Simply create a new file, for example:
 - `src/pages/api/test.ts` → `/api/test`
 
 ---
 
 ## 🔄 Hot Reload (Dev mode)
 
-De Dev Edition is ingesteld op fast feedback tijdens development:
+The Dev Edition is set up for fast feedback during development:
 
-1. Code aanpassen in `src/pages` of `packages/kitro-blocks`
-2. Browser herlaadt automatisch (of via hot reload, afhankelijk van dev-server setup)
+1. Modify code in `src/pages` or `packages/kitro-blocks`
+2. Browser reloads automatically (or via hot reload, depending on dev-server setup)
 
-**Als je niet zeker weet of hot reload werkt:**
+**If you're not sure if hot reload works:**
 
-1. Start dev-server: `pnpm run dev:devdemo`
-2. Open browser op `http://localhost:3000`
-3. Pas een tekst in `src/pages/index.tsx` aan
-4. Sla op → check of de wijziging direct zichtbaar is
+1. Start dev server: `pnpm run dev:devdemo`
+2. Open browser at `http://localhost:3000`
+3. Modify some text in `src/pages/index.tsx`
+4. Save → check if the change is immediately visible
 
 ---
 
-## 🏗️ Production build & deploy (basis)
+## 🏗️ Production build & deploy (basic)
 
-Let op: Dev Edition focust op DX. Onderstaande is een basisvoorbeeld; pas het aan op jouw infra.
+Note: Dev Edition focuses on DX. The following is a basic example; adjust it to your infrastructure.
 
 **1. Build**
 
@@ -247,7 +247,7 @@ Let op: Dev Edition focust op DX. Onderstaande is een basisvoorbeeld; pas het aa
 pnpm run build:devdemo
 ```
 
-Dit genereert een productie-build voor de demo-app.
+This generates a production build for the demo app.
 
 **2. Start in production mode**
 
@@ -255,9 +255,9 @@ Dit genereert een productie-build voor de demo-app.
 pnpm run start:devdemo
 ```
 
-Je kunt dit met PM2 of systemd runnen:
+You can run this with PM2 or systemd:
 
-**PM2 voorbeeld:**
+**PM2 example:**
 
 ```bash
 pm2 start "pnpm run start:devdemo" --name kitrojs-dev
@@ -266,54 +266,54 @@ pm2 save
 
 ---
 
-## 🧪 Testing (planning)
+## 🧪 Testing (planned)
 
-Er is nog geen officiële testing guide, maar dit is de geplande richting:
+There is no official testing guide yet, but this is the planned direction:
 
 - **Pages & Blocks:** React Testing Library + Vitest/Jest
 - **API routes:** Hono + supertest/undici
 
-Voorstellen en PR's voor een testing setup zijn welkom in `CONTRIBUTING.md`.
+Suggestions and PRs for a testing setup are welcome in `CONTRIBUTING.md`.
 
 ---
 
 ## 🗺️ Roadmap (Dev Edition)
 
-Korte roadmap voor toekomstige versies:
+Short roadmap for future versions:
 
-- Uitgebreide hot-reload documentatie
-- Officiële testing setup & voorbeelden
+- Extended hot-reload documentation
+- Official testing setup & examples
 - Performance tips & best practices
-- Integratievoorbeelden (auth, database, etc.)
-- Voorbeelden van grotere apps (dashboard, blog, landing pages)
+- Integration examples (auth, database, etc.)
+- Examples of larger apps (dashboard, blog, landing pages)
 
 ---
 
 ## 🤝 Contributing
 
-We verwelkomen bijdragen!
+We welcome contributions!
 
-**Lees eerst:** [CONTRIBUTING.md](CONTRIBUTING.md)
+**Read first:** [CONTRIBUTING.md](CONTRIBUTING.md)
 
-**Korte samenvatting:**
+**Quick summary:**
 
-1. Fork de repository
-2. Maak een feature branch: `git checkout -b feature/my-feature`
-3. Commit je wijzigingen: `git commit -m "Add my new feature"`
-4. Push naar je fork: `git push origin feature/my-feature`
-5. Open een Pull Request
+1. Fork the repository
+2. Create a feature branch: `git checkout -b feature/my-feature`
+3. Commit your changes: `git commit -m "Add my new feature"`
+4. Push to your fork: `git push origin feature/my-feature`
+5. Open a Pull Request
 
 ---
 
 ## 🔐 Security
 
-Veiligheidsissues?
+Security issues?
 
-Lees [SECURITY.md](SECURITY.md) en mail:
+Read [SECURITY.md](SECURITY.md) and email:
 
 **security@kitrojs.com**
 
-Meld vulnerabilities niet openbaar in issues of PR titles.
+Do not report vulnerabilities publicly in issues or PR titles.
 
 ---
 
@@ -328,11 +328,10 @@ Meld vulnerabilities niet openbaar in issues of PR titles.
 
 ## 💜 Credits
 
-KitroJS is ontwikkeld door Nico Vermaeck en zal stap voor stap groeien met community-bijdragen.
+KitroJS is developed by Nico Vermaeck and will gradually grow with community contributions.
 
-Als je KitroJS gebruikt in een project, vinden we het leuk als je ergens een kleine verwijzing plaatst zoals:
+If you use KitroJS in a project, we'd love it if you place a small reference somewhere like:
 
 **"Built with KitroJS"**
 
-Maar het is niet verplicht.
-
+But it's not required.
