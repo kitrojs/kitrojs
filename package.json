@@ -1,0 +1,40 @@
+{
+  "name": "kitro",
+  "version": "0.8.0",
+  "private": true,
+  "description": "The open-core JS framework with optional AI power",
+  "workspaces": [
+    "packages/*",
+    "examples/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "dev": "pnpm --filter kitro-dev-dashboard dev & pnpm --filter basic-app dev",
+    "build:core": "pnpm -r --filter @kitro/runtime --filter @kitro/router --filter @kitro/blocks --filter @kitro/auth --filter @kitro/security --filter @kitro/uploads --filter @kitro/realtime build",
+    "build:modules": "pnpm -r --filter @kitro/module-* build",
+    "build:apps": "pnpm -r --filter kitro-site --filter kitro-cms --filter kitro-dev-demo build",
+    "build:docs": "pnpm --filter @kitro/docs build",
+    "build:all": "pnpm build:core && pnpm build:modules && pnpm build:apps && pnpm build:docs || (echo '❌ Build failed! Check the error above to see which package failed.' && echo '💡 Tip: Run pnpm -C packages/<package-name> build to debug a specific package.' && exit 1)",
+    "build": "pnpm build:all",
+    "start:kitro-site": "cd apps/kitro-site && node server.js",
+    "kitro:create-admin-demo": "pnpm --filter kitro-cms kitro:create-admin-demo",
+    "kitro:seed-demo": "pnpm --filter kitro-cms kitro:seed-demo",
+    "kitro:install": "pnpm --filter kitro-cms kitro:install",
+    "kitro:version": "node -e \"console.log('KitroJS', require('./package.json').version)\"",
+    "dev:devdemo": "pnpm --filter kitro-dev-demo dev",
+    "build:devdemo": "pnpm --filter kitro-dev-demo build",
+    "start:devdemo": "pnpm --filter kitro-dev-demo start",
+    "lint": "pnpm -r lint",
+    "typecheck": "pnpm -r typecheck"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "typescript": "^5.3.3",
+    "prettier": "^3.1.0",
+    "eslint": "^8.55.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
+
